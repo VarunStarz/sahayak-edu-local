@@ -7,7 +7,6 @@ A sophisticated educational platform that uses multiple AI agents to provide per
 ```
 ├── src/                          # Main source code
 │   ├── agents/                   # Agent implementations
-│   │   ├── base/                 # Base agent classes
 │   │   ├── router/               # Agent router implementation
 │   │   ├── analytics/            # Analytics agent
 │   │   ├── curriculum/           # Curriculum agent

@@ -13,8 +13,6 @@ All entities use proper ObjectBox decorators and field types for database persis
 from datetime import datetime
 from objectbox import Entity, Id, String, Int64, Float64, Date, Float32Vector
 from objectbox.model import Property
-from xmlrpc.client import DateTime
-from test.test_hash import DatetimeTests
 
 
 @Entity()
