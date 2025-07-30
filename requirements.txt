@@ -1,0 +1,29 @@
+# Core framework dependencies
+pocketflow==0.0.3
+objectbox>=4.0.0
+mcp>=1.0.0
+
+# Analytics and visualization
+plotly>=5.17.0
+pandas>=2.0.0
+numpy>=1.24.0
+
+# External integrations
+google-api-python-client>=2.100.0
+google-auth-httplib2>=0.2.0
+google-auth-oauthlib>=1.0.0
+
+# Async and HTTP support
+aiohttp>=3.8.0
+asyncio-mqtt>=0.13.0
+
+# Development and testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-mock>=3.11.0
+black>=23.7.0
+flake8>=6.0.0
+
+# Utilities
+python-dotenv>=1.0.0
+pydantic>=2.0.0

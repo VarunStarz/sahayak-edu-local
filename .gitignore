@@ -1,0 +1,4 @@
+venv/
+.kiro/
+.pytest_cache/
+
