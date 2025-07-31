@@ -125,3 +125,6 @@ def call_llm(prompt, model="gemma3n"):
     except Exception as e:
         logger.error(f"LLM call failed: {e}")
         raise
+
+def check_code(code: str):
+    return
