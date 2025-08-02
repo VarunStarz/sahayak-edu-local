@@ -2,9 +2,9 @@ import ollama
 from objectbox_store import ObjectBoxStore
 
 class HistoryAgent:
-    def __init__(self, 
-                 embedding_model_name='all-MiniLM-L6-v2', 
-                 gemma_model='gemma3n', 
+    def __init__(self,
+                 embedding_model_name='all-MiniLM-L6-v2',
+                 gemma_model='gemma3n',
                  embedding_dim=384):
         self.db = ObjectBoxStore(embedding_model_name, embedding_dim)
         self.gemma_model = gemma_model

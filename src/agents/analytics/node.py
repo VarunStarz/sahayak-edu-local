@@ -1,5 +1,8 @@
 import pocketflow as pf
-from ....utils import call_llm,check_code
+from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from utils import call_llm,check_code
 import json
 from typing import Dict
 

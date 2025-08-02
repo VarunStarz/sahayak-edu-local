@@ -5,7 +5,7 @@ from router.agentRouter import AgentRouter
 from response.sub_agents.contentAgent import ContentAgent
 from response.sub_agents.visionAgent import VisionAgent
 from response.sub_agents.voiceAgent import VoiceAgent
-
+import logging
 class ResponseAgentADK(LlmAgent):
     def __init__(self, model="gemini-2.0-flash"):
         # Compose description and instruction dynamically
@@ -29,15 +29,15 @@ class ResponseAgentADK(LlmAgent):
             ]
         )
 
-        print(f"response_subrouter ---> {response_subrouter}")
+        logging.info(f"response_subrouter ---> {response_subrouter}")
 
-        """# Initialize the parent router agent with main sub-agents including the response sub-router
+        # Initialize the parent router agent with main sub-agents including the response sub-router
         super().__init__(
-            name="MainAgentRouter",
+            name="ResponseAgentADK",
             model=model,
             description=desc,
             instruction=instr,
             sub_agents=[
                 response_subrouter
             ]
-        )"""
+        )
