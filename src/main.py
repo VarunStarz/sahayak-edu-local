@@ -88,7 +88,7 @@ def health_check():
 def main():
     """Main application entry point"""
     logger.info("Starting Multi-Agent Educational Platform")
-    os.environ["GOOGLE_API_KEY"] = "AIzaSyDn21xXuCkD55wR0yuYNlq2JWYzVMUtDpU" # <--- REPLACE
+    os.environ["GOOGLE_API_KEY"] = "" # <--- REPLACE
     try:
         # TODO: Initialize ObjectBox database
         # TODO: Initialize PocketFlow components
