@@ -8,6 +8,14 @@ from pathlib import Path
 
 from config import get_config, ensure_directories
 
+from flask import Flask, request, jsonify
+app = Flask(__name__)
+
+from src.agents.history.historyAgent import HistoryAgent
+from src.agents.router.agentRouter import AgentRouter
+
+from src.agents.analytics.node import AnalyticsAgentBase
+from src.agents.response.responseAgentADK import ResponseAgentADK
 
 def setup_logging():
     """Setup logging configuration"""
@@ -30,6 +38,32 @@ async def main():
         # TODO: Initialize PocketFlow components
         # TODO: Setup MCP client connections
         # TODO: Start the main application flow
+
+        @app.route('/entryPoint', methods=['POST'])
+        def pgvectordemo():
+            logger.info('Entering into entryPoint')
+            data = request.get_json()
+            query = data['query']
+
+            #rag = HistoryAgent()
+            #response = rag.query(query)
+
+            router = AgentRouter(
+                name="MainRouter",
+                description="Routes response queries to Analytics, Curriculum, Planning or Response agents",
+                instruction=(
+                    "Transfer queries to 'AnalyticsAgent' for analytics, 'CurriculumAgent' for curriculum help, "
+                    "'PlanningAgent' for planning help or 'ResponseAgentADK' for text, image or audio output."
+                ),
+                sub_agents=[
+                    AnalyticsAgentBase(),
+                    ResponseAgentADK()
+                ]
+            )
+            logger.info(f"router ---> {router}")
+            logger.info('Returning from entryPoint')
+
+            return jsonify({'response': 'Hi'})
         
         logger.info("Platform initialization complete")
         
