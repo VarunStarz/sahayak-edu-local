@@ -14,8 +14,13 @@ import os
 from agents.router.agentRouter import AgentRouter
 from agents.analytics.node import AnalyticsAgentBase
 from agents.response.responseAgentADK import ResponseAgentADK
+from agents.analytics.analyticsAgentADK import AnalyticsAgent
+from agents.curriculum.curriculumAgent import CurriculumAgent
+from agents.planning.planningAgentADK import PlanningAgent
+
 from google.adk.sessions import InMemorySessionService
 from google.adk.runners import Runner
+
 app = Flask(__name__)
 
 def setup_logging():
@@ -42,7 +47,9 @@ async def pgvectordemo():
             "'PlanningAgent' for planning help or 'ResponseAgentADK' for text, image or audio output."
         ),
         sub_agents=[
-            ##AnalyticsAgentBase(),
+            AnalyticsAgent(),
+            CurriculumAgent,
+            PlanningAgent(),
             ResponseAgentADK()
         ]
     )

@@ -5,7 +5,9 @@ from router.agentRouter import AgentRouter
 from response.sub_agents.contentAgent import ContentAgent
 from response.sub_agents.visionAgent import VisionAgent
 from response.sub_agents.voiceAgent import VoiceAgent
+from history.historyAgentADK import HistoryAgentADK
 import logging
+
 class ResponseAgentADK(LlmAgent):
     def __init__(self, model="gemini-2.0-flash"):
         # Compose description and instruction dynamically
@@ -16,7 +18,7 @@ class ResponseAgentADK(LlmAgent):
         )
 
         # Compose sub-agent instances including the nested ResponseSubRouter
-        response_subrouter = AgentRouter(
+        """response_subrouter = AgentRouter(
             name="ResponseSubRouter",
             description="Routes response queries to Content, Vision, or Voice agents",
             instruction=(
@@ -26,6 +28,17 @@ class ResponseAgentADK(LlmAgent):
                 ContentAgent(),
                 VisionAgent(),
                 VoiceAgent()
+            ]
+        )"""
+
+        response_subrouter = AgentRouter(
+            name="ResponseSubRouter",
+            description="Routes response queries to the History Agent",
+            instruction=(
+                "Transfer queries to the 'HistoryAgent' first."
+            ),
+            sub_agents=[
+                HistoryAgentADK()
             ]
         )
 
