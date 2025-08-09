@@ -9,13 +9,14 @@ from history.historyAgentADK import HistoryAgentADK
 import logging
 
 class ResponseAgentADK(LlmAgent):
-    def __init__(self, model="gemini-2.0-flash"):
+    def __init__(self, query, model="gemini-2.0-flash"):
         # Compose description and instruction dynamically
         desc = "Routes queries dynamically to expert sub-agents for content, vision or voice."
         instr = (
             "On receiving a query, transfer control to one of the sub-agents: "
             "'ContentAgent', 'VisionAgent' and 'VoiceAgent'."
         )
+        self.query = query
 
         # Compose sub-agent instances including the nested ResponseSubRouter
         """response_subrouter = AgentRouter(
@@ -38,7 +39,7 @@ class ResponseAgentADK(LlmAgent):
                 "Transfer queries to the 'HistoryAgent' first."
             ),
             sub_agents=[
-                HistoryAgentADK()
+                HistoryAgentADK(query=self.query)
             ]
         )
 

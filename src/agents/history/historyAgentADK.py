@@ -8,18 +8,32 @@ from response.sub_agents.voiceAgent import VoiceAgent
 from curriculum.sub_agents.pacingAndSequenceAgent import PacingAndSequenceAgent
 import logging
 
+from RAG import EnhancedRAG
+
 class HistoryAgentADK(LlmAgent):
-    def __init__(self, model="gemini-2.0-flash"):
+    def __init__(self, query, model="gemini-2.0-flash"):
         # Compose description and instruction dynamically
         desc = "Checks the history for related queries."
         instr = (
             "On receiving a query, checks if the query or a similar one is already asked before by checking the vector database." \
             "If it is present in the vector database, it returns the answer from the db, else, it transfers the task to the dedicated agent."
         )
+        self.query = query
 
         ### --------------- QUERY VECTOR DB OPERATION ---------------------------
 
         present_in_vector_db = False
+
+        ragAgent = EnhancedRAG(query=self.query)
+        
+        print(f"\n**Question:** {self.query}")
+        response = ragAgent.query(self.query)
+        if "error" in response:
+            print(f"Error: {response['error']}")
+        else:
+            print(f"**Answer:** {response['answer']}")
+            print(f"**Sources:** {len(response.get('context', []))} documents used")
+            present_in_vector_db = True
 
         # Compose sub-agent instances including the nested HistorySubRouter
 

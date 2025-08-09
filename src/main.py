@@ -50,7 +50,7 @@ async def pgvectordemo():
             AnalyticsAgent(),
             CurriculumAgent,
             PlanningAgent(),
-            ResponseAgentADK()
+            ResponseAgentADK(query=query)
         ]
     )
     #rag = HistoryAgent()
