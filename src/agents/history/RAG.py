@@ -289,11 +289,13 @@ def main():
     rag.setup_retrieval_chain()
     
     # Query the system
-    questions = [
+    """questions = [
         "How can LangSmith help with testing?",
         "What are the main features of LangSmith?",
         "How do I get started with LangSmith?"
-    ]
+    ]"""
+
+    questions = []
     
     for question in questions:
         print(f"\n**Question:** {question}")
