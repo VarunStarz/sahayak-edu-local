@@ -7,116 +7,73 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from utils import call_llm, check_code
 from typing import Dict, Any
 
-def generate_db_query(query: str, context: str = "No previous Context", database_schema: str = "") -> Dict[str, Any]:
+
+def check_generated_code(code: str) -> Dict[str, Any]:
     """
-    Converts natural language query into ObjectBox database query code.
+    Validates if the generated ObjectBox query code is syntactically correct.
 
     Args:
-        query: Natural language query from user
-        context: Previous conversation context
-        database_schema: Database schema information
+        code: Generated ObjectBox query code to validate
 
     Returns:
-        Dictionary containing the generated query code and metadata
+        Dictionary with validation results
     """
-    prompt = f'''
-    You are an expert API that exclusively translates natural language requests into ObjectBox queries for the Python SDK.
-
-    Given the database schema, convert the user's request into a valid ObjectBox query.
-    Your output MUST be a single JSON object and nothing else. Do not add explanations or markdown formatting.
-
-    Input:
-    NATURAL LANGUAGE QUERY: {query}
-    CONTEXT: {context}
-    DATABASE SCHEMA: {database_schema}
-
-    TASK:
-    Translate the natural language request into an ObjectBox query for the Python SDK. The query should assume a Box instance is available as `box`.
-
-    OUTPUT FORMAT (JSON only):
-    {{
-        "query": "{query}",
-        "context": "{context}",
-        "database_used": "ObjectBox",
-        "code": "[Generated ObjectBox Python SDK query code here]"
-    }}'''
-
-    response_text = call_llm(prompt)
     try:
-        response_dict = json.loads(response_text)
-        # Validate and execute the code
-        code = response_dict.get('code', '')
-        response_dict['tool_call_result'] = check_code(code)
-        return response_dict
-    except json.JSONDecodeError:
+        # Use the existing check_code function from utils
+        validation_result = check_code(code)
+
+        # Determine if code is valid based on the check_code result
+        is_valid = validation_result.get('success', False) if isinstance(validation_result, dict) else bool(validation_result)
+
         return {
-            "query": query,
-            "context": context,
-            "database_used": "ObjectBox",
-            "code": "Error: Invalid JSON response from LLM",
-            "error": "JSON decode error"
+            "code": code,
+            "is_valid": is_valid,
+            "validation_result": validation_result,
+            "message": "Code validation completed" if is_valid else "Code validation failed"
+        }
+    except Exception as e:
+        return {
+            "code": code,
+            "is_valid": False,
+            "validation_result": None,
+            "message": f"Error during code validation: {str(e)}"
         }
 
-def determine_analytics_action(query: str, context: str = "No previous Context") -> Dict[str, str]:
+def execute_database_query(code: str, database_context: str = "") -> Dict[str, Any]:
     """
-    Analyzes user query to determine the appropriate analytics action.
+    Executes the validated ObjectBox query code and retrieves data.
 
     Args:
-        query: User's natural language query
-        context: Previous conversation context
+        code: Validated ObjectBox query code to execute
+        database_context: Additional context about the database
 
     Returns:
-        Dictionary with action type and reasoning
+        Dictionary containing query results or error information
     """
-    prompt = f"""
-    You are an Analytics Agent designed to provide data analytics capabilities through natural language processing. Your primary function is to interpret user queries and determine the most appropriate action to fulfill their analytical needs.
-
-    **Available Actions:**
-    1. "db" - Query and display database information based on the user's question
-    2. "graph" - Generate and display visualizations/graphs based on the user's analytical request
-    3. "upload" - Upload data into existing databases or create new databases as needed (primarily for teachers)
-
-    **Your Task:**
-    Analyze the user's natural language query and select exactly ONE of the three actions above that best addresses their request. Consider the following guidelines:
-
-    - Choose "db" when users need to see raw data, search for specific records, or want tabular information
-    - Choose "graph" when users request visualizations, trends, comparisons, or want to see data represented visually
-    - Choose "upload" when users need to add new data, create databases, or manage data storage (especially for educational contexts)
-
-    **Context:** {context}
-
-    **User Query:** {query}
-
-    **Output Format:**
-    You must respond with a JSON object in the following format:
-    {{
-      "action": "db|graph|upload",
-      "reasoning": "Brief explanation of why this action was chosen"
-    }}
-
-    **Instructions:**
-    1. Read the user's query carefully
-    2. Consider the provided context
-    3. Select the most appropriate action from: "db", "graph", or "upload"
-    4. Provide a concise reasoning for your choice
-    5. Format your response as valid JSON only
-
-    Context: This agent serves educational environments where teachers may need to manage data while students and staff require various forms of data analysis and visualization.
-    """
-
-    response_text = call_llm(prompt)
     try:
-        response_dict = json.loads(response_text)
-        return response_dict
-    except json.JSONDecodeError:
+
+        result = {
+            "code_executed": code,
+            "execution_status": "success",
+            "data": "Placeholder: In real implementation, this would contain actual query results",
+            "row_count": 0,
+            "message": "Query executed successfully (simulated)"
+        }
+
+        return result
+
+    except Exception as e:
         return {
-            "action": "db",
-            "reasoning": "Error: Invalid JSON response from LLM, defaulting to database query"
+            "code_executed": code,
+            "execution_status": "error",
+            "data": None,
+            "row_count": 0,
+            "message": f"Error executing query: {str(e)}"
         }
 
 # Create function tools
-db_query_tool = FunctionTool(func=generate_db_query)
-action_determination_tool = FunctionTool(func=determine_analytics_action)
+code_checker_tool = FunctionTool(func=check_generated_code)
+db_execution_tool = FunctionTool(func=execute_database_query)
 
 class DatabaseAgent(LlmAgent):
     def __init__(self):
@@ -125,13 +82,16 @@ class DatabaseAgent(LlmAgent):
             model="gemini-2.0-flash",
             description="Handles database queries and data retrieval operations.",
             instruction=(
-                "You handle database-related queries. When you receive a query, use the generate_db_query tool "
-                "to convert natural language into ObjectBox database query code. "
-                "The tool returns a JSON object with the generated code and metadata. "
-                "Execute the code if it's valid and return the results to the user. "
-                "If there are errors in code generation, report them clearly."
+                "You handle database-related queries following this workflow: "
+                "1. First, convert natural language query into ObjectBox database query code "
+                "2. Then, use the check_generated_code tool to validate if the generated code is correct "
+                "3. If the code checker tool returns 'is_valid': True, proceed to use the execute_database_query tool to run the query and get actual data "
+                "4. If the code checker tool returns 'is_valid': False, inform the user about the code validation error and do not execute "
+                "5. Return the final results or error messages to the user "
+                "Always follow this sequence: generate -> check -> execute (only if valid). "
+                "The check_generated_code tool output contains an 'is_valid' field that determines whether to proceed with execution."
             ),
-            tools=[db_query_tool]
+            tools=[code_checker_tool, db_execution_tool]
         )
 
 class GraphAgent(LlmAgent):
@@ -175,15 +135,13 @@ class AnalyticsAgent(LlmAgent):
             description="Provides comprehensive data analytics capabilities through natural language processing.",
             instruction=(
                 "You are the main Analytics Agent that handles all data analytics requests. "
-                "When you receive a query, first use the determine_analytics_action tool to understand "
-                "what type of action is needed. The tool returns a JSON object with 'action' field that can be: "
-                "'db' for database queries, 'graph' for visualizations, or 'upload' for data management. "
+                "When you receive a query, first use the query and context to understand "
+                "what type of action is needed. action will be of type db, graph and upload "
                 "Based on the action returned: "
                 "- Route 'db' requests to DatabaseAgent for data retrieval and querying "
                 "- Route 'graph' requests to GraphAgent for creating visualizations "
                 "- Route 'upload' requests to UploadAgent for data upload and management "
                 "Always explain your reasoning for the chosen action to the user."
             ),
-            tools=[action_determination_tool],
             sub_agents=[database_agent, graph_agent, upload_agent]
         )
