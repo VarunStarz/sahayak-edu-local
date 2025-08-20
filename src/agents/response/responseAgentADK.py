@@ -16,7 +16,6 @@ class ResponseAgentADK(LlmAgent):
             "On receiving a query, transfer control to one of the sub-agents: "
             "'ContentAgent', 'VisionAgent' and 'VoiceAgent'."
         )
-        self.query = query
 
         # Compose sub-agent instances including the nested ResponseSubRouter
         """response_subrouter = AgentRouter(
@@ -39,7 +38,7 @@ class ResponseAgentADK(LlmAgent):
                 "Transfer queries to the 'HistoryAgent' first."
             ),
             sub_agents=[
-                HistoryAgentADK(query=self.query)
+                HistoryAgentADK()
             ]
         )
 

@@ -1169,3 +1169,114 @@ Raw response:
 2025-08-02 23:04:23,929 [INFO] __main__: Platform shutdown complete
 2025-08-02 23:04:24,563 [INFO] werkzeug:  * Restarting with watchdog (fsevents)
 2025-08-02 23:04:27,283 [INFO] __main__: Platform shutdown complete
+2025-08-09 20:02:54,349 [INFO] __main__: Starting Multi-Agent Educational Platform
+2025-08-09 20:02:54,350 [INFO] __main__: Platform initialization complete
+2025-08-09 20:02:54,408 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.29.93:8000
+2025-08-09 20:02:54,408 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2025-08-09 20:02:54,431 [INFO] werkzeug:  * Restarting with watchdog (fsevents)
+2025-08-09 20:02:57,189 [INFO] __main__: Starting Multi-Agent Educational Platform
+2025-08-09 20:02:57,189 [INFO] __main__: Platform initialization complete
+2025-08-09 20:02:57,213 [WARNING] werkzeug:  * Debugger is active!
+2025-08-09 20:02:57,230 [INFO] werkzeug:  * Debugger PIN: 778-237-236
+2025-08-09 20:03:35,199 [DEBUG] fsevents: NativeEvent(path="/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/history/historyAgentADK.py", inode=261133305, flags=11400, id=419685307): is_file, is_inode_meta_mod, is_modified
+2025-08-09 20:03:35,199 [DEBUG] fsevents: queue_event FileModifiedEvent(src_path='/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/history/historyAgentADK.py', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2025-08-09 20:03:35,200 [INFO] werkzeug:  * Detected change in '/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/history/historyAgentADK.py', reloading
+2025-08-09 20:03:35,574 [INFO] __main__: Platform shutdown complete
+2025-08-09 20:03:36,190 [INFO] werkzeug:  * Restarting with watchdog (fsevents)
+2025-08-09 20:03:39,021 [INFO] __main__: Starting Multi-Agent Educational Platform
+2025-08-09 20:03:39,021 [INFO] __main__: Platform initialization complete
+2025-08-09 20:03:39,055 [WARNING] werkzeug:  * Debugger is active!
+2025-08-09 20:03:39,066 [INFO] werkzeug:  * Debugger PIN: 778-237-236
+2025-08-09 20:06:35,227 [DEBUG] asyncio: Using selector: KqueueSelector
+2025-08-09 20:06:35,228 [INFO] __main__: Entering into entryPoint
+2025-08-09 20:06:35,247 [INFO] werkzeug: 127.0.0.1 - - [09/Aug/2025 20:06:35] "[35m[1mPOST /entryPoint HTTP/1.1[0m" 500 -
+2025-08-09 20:11:47,381 [DEBUG] fsevents: NativeEvent(path="/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/response/responseAgentADK.py", inode=261133306, flags=11400, id=419708084): is_file, is_inode_meta_mod, is_modified
+2025-08-09 20:11:47,381 [DEBUG] fsevents: queue_event FileModifiedEvent(src_path='/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/response/responseAgentADK.py', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2025-08-09 20:11:47,382 [INFO] werkzeug:  * Detected change in '/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/response/responseAgentADK.py', reloading
+2025-08-09 20:11:47,719 [INFO] __main__: Platform shutdown complete
+2025-08-09 20:11:48,333 [INFO] werkzeug:  * Restarting with watchdog (fsevents)
+2025-08-09 20:11:51,318 [INFO] __main__: Starting Multi-Agent Educational Platform
+2025-08-09 20:11:51,318 [INFO] __main__: Platform initialization complete
+2025-08-09 20:11:51,346 [WARNING] werkzeug:  * Debugger is active!
+2025-08-09 20:11:51,356 [INFO] werkzeug:  * Debugger PIN: 778-237-236
+2025-08-09 20:11:51,549 [DEBUG] asyncio: Using selector: KqueueSelector
+2025-08-09 20:11:51,550 [INFO] __main__: Entering into entryPoint
+2025-08-09 20:11:51,554 [INFO] werkzeug: 127.0.0.1 - - [09/Aug/2025 20:11:51] "[35m[1mPOST /entryPoint HTTP/1.1[0m" 500 -
+2025-08-09 20:12:25,503 [DEBUG] fsevents: NativeEvent(path="/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/response/responseAgentADK.py", inode=261133306, flags=11400, id=419710290): is_file, is_inode_meta_mod, is_modified
+2025-08-09 20:12:25,503 [DEBUG] fsevents: queue_event FileModifiedEvent(src_path='/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/response/responseAgentADK.py', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2025-08-09 20:12:25,504 [INFO] werkzeug:  * Detected change in '/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/response/responseAgentADK.py', reloading
+2025-08-09 20:12:26,422 [INFO] __main__: Platform shutdown complete
+2025-08-09 20:12:27,032 [INFO] werkzeug:  * Restarting with watchdog (fsevents)
+2025-08-09 20:12:29,895 [INFO] __main__: Starting Multi-Agent Educational Platform
+2025-08-09 20:12:29,895 [INFO] __main__: Platform initialization complete
+2025-08-09 20:12:29,919 [WARNING] werkzeug:  * Debugger is active!
+2025-08-09 20:12:29,929 [INFO] werkzeug:  * Debugger PIN: 778-237-236
+2025-08-09 20:12:36,124 [DEBUG] asyncio: Using selector: KqueueSelector
+2025-08-09 20:12:36,124 [INFO] __main__: Entering into entryPoint
+2025-08-09 20:12:36,142 [INFO] werkzeug: 127.0.0.1 - - [09/Aug/2025 20:12:36] "[35m[1mPOST /entryPoint HTTP/1.1[0m" 500 -
+2025-08-09 20:17:48,268 [DEBUG] fsevents: NativeEvent(path="/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/response/responseAgentADK.py", inode=261133306, flags=11400, id=419728773): is_file, is_inode_meta_mod, is_modified
+2025-08-09 20:17:48,268 [DEBUG] fsevents: queue_event FileModifiedEvent(src_path='/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/response/responseAgentADK.py', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2025-08-09 20:17:48,269 [INFO] werkzeug:  * Detected change in '/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/response/responseAgentADK.py', reloading
+2025-08-09 20:17:49,153 [INFO] __main__: Platform shutdown complete
+2025-08-09 20:17:49,766 [INFO] werkzeug:  * Restarting with watchdog (fsevents)
+2025-08-09 20:17:52,675 [INFO] __main__: Starting Multi-Agent Educational Platform
+2025-08-09 20:17:52,675 [INFO] __main__: Platform initialization complete
+2025-08-09 20:17:52,703 [WARNING] werkzeug:  * Debugger is active!
+2025-08-09 20:17:52,714 [INFO] werkzeug:  * Debugger PIN: 778-237-236
+2025-08-09 20:17:52,763 [DEBUG] fsevents: NativeEvent(path="/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/response/responseAgentADK.py", inode=261133306, flags=11400, id=419729098): is_file, is_inode_meta_mod, is_modified
+2025-08-09 20:17:52,763 [DEBUG] fsevents: queue_event FileModifiedEvent(src_path='/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/response/responseAgentADK.py', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2025-08-09 20:17:52,764 [INFO] werkzeug:  * Detected change in '/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/response/responseAgentADK.py', reloading
+2025-08-09 20:17:53,771 [INFO] __main__: Platform shutdown complete
+2025-08-09 20:17:54,398 [INFO] werkzeug:  * Restarting with watchdog (fsevents)
+2025-08-09 20:17:57,253 [INFO] __main__: Starting Multi-Agent Educational Platform
+2025-08-09 20:17:57,253 [INFO] __main__: Platform initialization complete
+2025-08-09 20:17:57,278 [WARNING] werkzeug:  * Debugger is active!
+2025-08-09 20:17:57,288 [INFO] werkzeug:  * Debugger PIN: 778-237-236
+2025-08-09 20:20:49,815 [DEBUG] fsevents: NativeEvent(path="/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/history/historyAgentADK.py", inode=261133305, flags=11400, id=419734862): is_file, is_inode_meta_mod, is_modified
+2025-08-09 20:20:49,815 [DEBUG] fsevents: queue_event FileModifiedEvent(src_path='/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/history/historyAgentADK.py', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2025-08-09 20:20:49,816 [INFO] werkzeug:  * Detected change in '/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/history/historyAgentADK.py', reloading
+2025-08-09 20:20:50,507 [INFO] __main__: Platform shutdown complete
+2025-08-09 20:20:51,115 [INFO] werkzeug:  * Restarting with watchdog (fsevents)
+2025-08-09 20:20:53,975 [INFO] __main__: Starting Multi-Agent Educational Platform
+2025-08-09 20:20:53,975 [INFO] __main__: Platform initialization complete
+2025-08-09 20:20:54,001 [WARNING] werkzeug:  * Debugger is active!
+2025-08-09 20:20:54,012 [INFO] werkzeug:  * Debugger PIN: 778-237-236
+2025-08-09 20:22:56,235 [DEBUG] fsevents: NativeEvent(path="/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/history/historyAgentADK.py", inode=261133305, flags=11400, id=419738557): is_file, is_inode_meta_mod, is_modified
+2025-08-09 20:22:56,236 [DEBUG] fsevents: queue_event FileModifiedEvent(src_path='/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/history/historyAgentADK.py', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2025-08-09 20:22:56,236 [INFO] werkzeug:  * Detected change in '/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/history/historyAgentADK.py', reloading
+2025-08-09 20:22:56,738 [INFO] __main__: Platform shutdown complete
+2025-08-09 20:22:57,348 [INFO] werkzeug:  * Restarting with watchdog (fsevents)
+2025-08-09 20:23:00,142 [INFO] __main__: Starting Multi-Agent Educational Platform
+2025-08-09 20:23:00,143 [INFO] __main__: Platform initialization complete
+2025-08-09 20:23:00,171 [WARNING] werkzeug:  * Debugger is active!
+2025-08-09 20:23:00,181 [INFO] werkzeug:  * Debugger PIN: 778-237-236
+2025-08-09 20:23:41,204 [DEBUG] fsevents: NativeEvent(path="/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/history/historyAgentADK.py", inode=261133305, flags=11400, id=419739707): is_file, is_inode_meta_mod, is_modified
+2025-08-09 20:23:41,204 [DEBUG] fsevents: queue_event FileModifiedEvent(src_path='/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/history/historyAgentADK.py', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2025-08-09 20:23:41,206 [INFO] werkzeug:  * Detected change in '/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/history/historyAgentADK.py', reloading
+2025-08-09 20:23:41,408 [INFO] __main__: Platform shutdown complete
+2025-08-09 20:23:42,012 [INFO] werkzeug:  * Restarting with watchdog (fsevents)
+2025-08-09 20:23:44,886 [INFO] __main__: Starting Multi-Agent Educational Platform
+2025-08-09 20:23:44,886 [INFO] __main__: Platform initialization complete
+2025-08-09 20:23:44,912 [WARNING] werkzeug:  * Debugger is active!
+2025-08-09 20:23:44,922 [INFO] werkzeug:  * Debugger PIN: 778-237-236
+2025-08-09 20:25:19,043 [DEBUG] fsevents: NativeEvent(path="/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/history/historyAgentADK.py", inode=261133305, flags=11400, id=419742158): is_file, is_inode_meta_mod, is_modified
+2025-08-09 20:25:19,043 [DEBUG] fsevents: queue_event FileModifiedEvent(src_path='/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/history/historyAgentADK.py', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2025-08-09 20:25:19,044 [INFO] werkzeug:  * Detected change in '/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/history/historyAgentADK.py', reloading
+2025-08-09 20:25:19,780 [INFO] __main__: Platform shutdown complete
+2025-08-09 20:25:20,362 [INFO] werkzeug:  * Restarting with watchdog (fsevents)
+2025-08-09 20:25:23,177 [INFO] __main__: Starting Multi-Agent Educational Platform
+2025-08-09 20:25:23,177 [INFO] __main__: Platform initialization complete
+2025-08-09 20:25:23,202 [WARNING] werkzeug:  * Debugger is active!
+2025-08-09 20:25:23,213 [INFO] werkzeug:  * Debugger PIN: 778-237-236
+2025-08-09 20:25:54,547 [DEBUG] fsevents: NativeEvent(path="/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/history/historyAgentADK.py", inode=261133305, flags=11400, id=419743892): is_file, is_inode_meta_mod, is_modified
+2025-08-09 20:25:54,547 [DEBUG] fsevents: queue_event FileModifiedEvent(src_path='/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/history/historyAgentADK.py', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2025-08-09 20:25:54,549 [INFO] werkzeug:  * Detected change in '/Users/utkarsh_kaushik/practice/Hackathons/sahayak-edu-local/src/agents/history/historyAgentADK.py', reloading
+2025-08-09 20:25:55,261 [INFO] __main__: Platform shutdown complete
+2025-08-09 20:25:55,857 [INFO] werkzeug:  * Restarting with watchdog (fsevents)
+2025-08-09 20:25:58,555 [INFO] __main__: Starting Multi-Agent Educational Platform
+2025-08-09 20:25:58,556 [INFO] __main__: Platform initialization complete
+2025-08-09 20:25:58,583 [WARNING] werkzeug:  * Debugger is active!
+2025-08-09 20:25:58,593 [INFO] werkzeug:  * Debugger PIN: 778-237-236
