@@ -38,7 +38,7 @@ class ResponseAgentADK(LlmAgent):
                 "Transfer queries to the 'HistoryAgent' first."
             ),
             sub_agents=[
-                HistoryAgentADK()
+                HistoryAgentADK(model)
             ]
         )
 
